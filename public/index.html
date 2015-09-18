@@ -26,9 +26,10 @@
                 var firstName = $("#firstName").val();
                 var lastName = $("#lastName").val();
                 var email = $("#email").val();
+				var NewEmail = $("#NewEmail").val();
                 var phone = $("#phone").val();
 
-                if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || phone.length == 0) {
+                if (firstName.length == 0 || lastName.length == 0 || email.length == 0 || phone.length == 0||NewEmail.length==0) {
                     errorMessage.text("All of the fields are required.");
                     error.show();
                 }
@@ -39,7 +40,7 @@
                         data: JSON.stringify({
                             firstName: firstName,
                             lastName: lastName,
-                            email: email,
+                            email: NewEmail,
                             phone: phone
                         }),
                         contentType: "application/json; charset=utf-8",
@@ -48,6 +49,7 @@
                             $("#firstName").val("");
                             $("#lastName").val("");
                             $("#email").val("");
+							$("#NewEmail").val("");
                             $("#phone").val("");
                             $("#messageMessage").text("Record updated!");
                             $("#message").show();
@@ -90,6 +92,10 @@
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="For verification" required>
+                    </div>
+					<div class="form-group">
+                        <label for="NewEmail">NewEmail</label>
+                        <input type="email" class="form-control" id="NewEmail" placeholder="For verification" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
